@@ -1,23 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import HoverVideoPlayer from 'react-hover-video-player';
 
 function Viewers() {
     return (
         <Container>
             <Wrap>
-                <img src="/images/viewers-disney.png" />
+                <Video>
+                    <HoverVideoPlayer videoSrc="/videos/disney.mp4" />
+                </Video>
+                <img src="/images/viewers-disney.png" /> 
             </Wrap>
             <Wrap>
+                <Video>
+                    <HoverVideoPlayer videoSrc="/videos/pixar.mp4" />
+                </Video>
                 <img src="/images/viewers-pixar.png" />
             </Wrap>
             <Wrap>
+                <Video>
+                    <HoverVideoPlayer videoSrc="/videos/marvel.mp4" />
+                </Video>
                 <img src="/images/viewers-marvel.png" />
             </Wrap>
             <Wrap>
+                <Video>
+                    <HoverVideoPlayer videoSrc="/videos/star-wars.mp4" />
+                </Video>
                 <img src="/images/viewers-starwars.png" />
             </Wrap>
             <Wrap>
+                <Video>
+                    <HoverVideoPlayer videoSrc="/videos/national-geographic.mp4" />
+                </Video>
                 <img src="/images/viewers-national.png" />
             </Wrap>
         </Container>
@@ -42,17 +57,35 @@ const Wrap = styled.div`
     border: 3px solid rgba(249, 249, 249, 0.1);
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
     transition: all 250ms cubic-bezier(0.25, 0.46, 0.15, 0.94) 0s;
+    position: relative;
 
     img{
         width: 100%;
         height: 100%;
         object-fit: cover;
+        z-index: 8;
     }
 
     &:hover {
         transform: scale(1.05);
         border-color: rgba(249, 249, 249, 0.8);
         box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+
+        video {
+            visibility: visible;
+        }
     }
 
+`
+const Video = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    z-index: 0;
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.15, 0.94) 0s;
 `
