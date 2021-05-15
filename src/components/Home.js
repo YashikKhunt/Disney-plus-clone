@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import Imgslider from './Imgslider'
+import Movies from './Movies'
 import Viewers from './Viewers'
+import {
+    Link
+} from "react-router-dom";
 
 function Home() {
     return (
         <Container>
             <Imgslider />
             <Viewers />
+            <Movies />
         </Container>
     )
 }
